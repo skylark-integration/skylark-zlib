@@ -1,6 +1,6 @@
 define([
   "./zlib",
-  "../crc32",
+  "./crc32",
   "./RawDeflate"
 ],function(Zlib,CRC32,RawDeflate) {
   /**
