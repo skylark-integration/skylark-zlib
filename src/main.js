@@ -1,0 +1,22 @@
+define([
+	"./zlib",
+	"./adler32",
+	"./BitStream",
+	"./crc32",
+	"./Deflate",
+	"./Gunzip",
+	"./GunzipMember",
+	"./Gzip",
+	"./Heap",
+	"./huffman",
+	"./Inflate",
+	"./InflateStream",
+	"./RawDeflate",
+	"./RawInflate",
+	"./RawInflateStream",
+	"./Unzip",
+	"./Util",
+	"./Zip"
+],function(zlib){
+	return zlib
+});
