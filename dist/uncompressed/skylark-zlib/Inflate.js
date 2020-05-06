@@ -1,6 +1,12 @@
 define([
-  "./zlib"
-],function(Zlib) {
+  "./zlib",
+  "./adler32",
+  "./RawInflate"
+],function(
+  Zlib,
+  Adler32,
+  RawInflate
+) {
   /**
    * @constructor
    * @param {!(Uint8Array|Array)} input deflated buffer.

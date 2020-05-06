@@ -1,28 +1,20 @@
 define([
-  "./zlib"
-],function(Zlib) {
-  
-});
-goog.provide('Zlib.InflateStream');
-
-goog.require('USE_TYPEDARRAY');
-goog.require('Zlib');
-//goog.require('Zlib.Adler32');
-goog.require('Zlib.RawInflateStream');
-
-goog.scope(function() {
+  "./zlib",
+  "./RawInflateStream"
+],function(Zlib,RawInflateStream) {
+  const USE_TYPEDARRAY = true;
 
 /**
  * @param {!(Uint8Array|Array)} input deflated buffer.
  * @constructor
  */
-Zlib.InflateStream = function(input) {
+var InflateStream = function(input) {
   /** @type {!(Uint8Array|Array)} */
   this.input = input === void 0 ? new (USE_TYPEDARRAY ? Uint8Array : Array)() : input;
   /** @type {number} */
   this.ip = 0;
-  /** @type {Zlib.RawInflateStream} */
-  this.rawinflate = new Zlib.RawInflateStream(this.input, this.ip);
+  /** @type {RawInflateStream} */
+  this.rawinflate = new RawInflateStream(this.input, this.ip);
   /** @type {Zlib.CompressionMethod} */
   this.method;
   /** @type {!(Array|Uint8Array)} */
@@ -33,7 +25,7 @@ Zlib.InflateStream = function(input) {
  * decompress.
  * @return {!(Uint8Array|Array)} inflated buffer.
  */
-Zlib.InflateStream.prototype.decompress = function(input) {
+InflateStream.prototype.decompress = function(input) {
   /** @type {!(Uint8Array|Array)} inflated buffer. */
   var buffer;
   /** @type {number} adler-32 checksum */
@@ -73,7 +65,7 @@ Zlib.InflateStream.prototype.decompress = function(input) {
       input[this.ip++] << 24 | input[this.ip++] << 16 |
       input[this.ip++] << 8 | input[this.ip++];
 
-    if (adler32 !== Zlib.Adler32(buffer)) {
+    if (adler32 !== Adler32(buffer)) {
       throw new Error('invalid adler-32 checksum');
     }
   }
@@ -82,7 +74,7 @@ Zlib.InflateStream.prototype.decompress = function(input) {
   return buffer;
 };
 
-Zlib.InflateStream.prototype.readHeader = function() {
+InflateStream.prototype.readHeader = function() {
   var ip = this.ip;
   var input = this.input;
 
@@ -114,9 +106,10 @@ Zlib.InflateStream.prototype.readHeader = function() {
   }
 
   this.ip = ip;
-};
+};  
 
-// end of scope
+  return Zlib.InflateStream = InflateStream;
 });
 
-/* vim:set expandtab ts=2 sw=2 tw=80: */
+
+

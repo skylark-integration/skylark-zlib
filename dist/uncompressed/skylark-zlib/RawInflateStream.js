@@ -1,8 +1,7 @@
 define([
   "./zlib",
-  "./huffman",
-  "./RawInflateStream"
-],function(Zlib,Huffman,RawInflateStream) {
+  "./huffman"
+],function(Zlib,Huffman) {
   const USE_TYPEDARRAY = true;
 
   //-----------------------------------------------------------------------------
