@@ -1,6 +1,7 @@
 define([
-  "./zlib"
-],function(Zlib) {
+  "./zlib",
+  "./huffman"
+],function(Zlib,Huffman) {
   const USE_TYPEDARRAY = true;
 
   //-----------------------------------------------------------------------------
