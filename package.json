@@ -28,7 +28,7 @@
     "dist/",
     "src/",
     "skins/"
-  ],  
+  ],
   "skylarkjs": {
     "build": {
       "bundle": {
