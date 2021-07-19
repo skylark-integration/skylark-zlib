@@ -87,7 +87,7 @@
 })(function(define,require) {
 
 define('skylark-zlib/zlib',[
-	"skylark-langx/skylark"
+	"skylark-langx-ns"
 ],function(skylark) {
 	return skylark.attach("intg.Zlib",{
 		CompressionMethod : {

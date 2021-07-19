@@ -5,5 +5,5 @@
  * @link https://github.com/skylark-integration/skylark-zlib/
  * @license MIT
  */
-define(["skylark-langx/skylark"],function(n){return n.attach("intg.Zlib",{CompressionMethod:{DEFLATE:8,RESERVED:15}})});
+define(["skylark-langx-ns"],function(n){return n.attach("intg.Zlib",{CompressionMethod:{DEFLATE:8,RESERVED:15}})});
 //# sourceMappingURL=sourcemaps/zlib.js.map
